@@ -3,6 +3,11 @@
 }
 
 @font-face {
+  font-family: "icons";
+  src: url('fonts/jamfont.woff') format('truetype');
+}
+
+@font-face {
   font-family: "uni-bold";
   src: url('fonts/uni-sans-bold-webfont.woff') format('truetype');
 }
@@ -16,6 +21,7 @@ html{
   margin: 0;
   padding: 0;
   border: none;
+  background: #E1E8EC;
   body{
     margin: 0;
     padding: 0;
@@ -25,23 +31,107 @@ html{
 
 .menu{
   color: #252425;
-  font-family: "uni", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "uni-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   text-transform: uppercase;
   text-align: center;
   font-weight: normal;
+  float: left;
+  position: relative;
   .menu-wrapper{
     border: none;
     list-style: none;
-    width: 200px;
-    left: 0;
     text-align: left;
-    padding: 0;
+    padding: 90px 40px 0 40px;
+    width: 240px;
+    background: #fff;
+    margin: 0;
+    position: relative;
+    &.visible{
+      left: 0px;
+    }
+    &.hidden{
+      left: -240px;
+    }
+    li{
+      display: inline-block;
+      width: 100%;
+      &:hover{
+        a{
+          color: #000;
+        }
+      }
+      &:last-child{
+        a{
+          border: none;
+        }
+      }
+      a{
+        display: inline-block;
+        padding: 16px 0;
+        color: grey;
+        text-decoration: none;
+        border-bottom: solid 1px #cfcfcf;
+        font-size: 14px;
+        width: 100%;
+        &:hover{
+          text-decoration: none;
+        }
+        &.active{
+          color: #000;
+        }
+        &:before{
+          font-family: "icons";
+          padding: 0 10px 0 0;
+          font-size: 18px;
+          position: relative;
+          top: 3px;
+        }
+        &.home{
+          &:before{
+            content: "\e625";
+          }
+        }
+        &.work{
+          &:before{
+            content: "\e601";
+          }
+        }
+        &.about{
+          &:before{
+            content: "\e604";
+          }
+        }
+        &.processes{
+          &:before{
+            content: "\e614";
+          }
+        }
+        &.news{
+          &:before{
+            content: "\e609";
+          }
+        }
+        &.achievements{
+          &:before{
+            content: "\e60e";
+          }
+        }
+        &.contacts{
+          &:before{
+            content: "\e613";
+          }
+        }
+      }
+    }
+
   }
   .menu-nav {
-    max-width: max-content;
-    margin: 2rem 2rem;
     cursor: pointer;
+    text-align: right;
+    position: absolute;
+    right: -130px;
+    top: 60px;
     &.active{
       color: grey;
       .line{
@@ -56,20 +146,20 @@ html{
         }
         &:nth-child(3){
           transform: translateY(-5px) rotate(-45deg);
-
         }
       }
     }
-    .menu-item {
+    .menu-item{
       display: inline-block;
       padding: 0;
       margin: 0;
       vertical-align: top;
       text-transform: uppercase;
       transition: all 0.3s ease-in-out;
+      width: 82px;
       &:before{
         content: "|";
-        margin: 0px 1rem;
+        margin: 0px 17px;
       }
     }
     .menu-icon {
@@ -77,6 +167,7 @@ html{
       height: 15px;
       display: inline-block;
       position: relative;
+      top: 4px;
       .line{
         transition: all 0.5s ease-in-out;
         width: 20px;

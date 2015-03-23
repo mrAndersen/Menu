@@ -45,7 +45,7 @@ html body {
   position: relative;
 }
 .menu .menu-wrapper.visible {
-  left: 0px;
+  left: 0;
 }
 .menu .menu-wrapper.hidden {
   left: -240px;

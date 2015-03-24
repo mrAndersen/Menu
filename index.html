@@ -11,11 +11,21 @@
         $(function () {
             var menuAnimationTime = 250;
             var delayAnimationTime = 200;
-            var hoverAnimationTime = 150;
-            var menuContainer = $('.menu-wrapper');
+            var hoverAnimationTime = 170;
+            var menuContainer = $('.menu');
             var menuSwitcher = $(".menu-item");
             var menuNav = $('.menu-nav');
             var mainWrapper = $('.wrapper');
+
+            var recursiveShow = function(element){
+                if(element.index() != -1){
+                    var next = element.next();
+                    element.slideDown(85,function(){
+                        recursiveShow(next);
+                    });
+                }
+            };
+
 
             $(document).on('click tap', '.menu-nav', function () {
                 $(this).toggleClass("active");
@@ -27,13 +37,16 @@
                 }
 
                 if (menuContainer.hasClass('hidden')) {
+                    menuContainer.find('li').hide();
+
                     menuContainer.delay(delayAnimationTime).animate({
                         left: 0
-                    }, menuAnimationTime);
-
-                    menuNav.animate({
-                        right: -140
-                    }, menuAnimationTime);
+                    }, menuAnimationTime,function(){
+                        menuNav.animate({
+                            'right': -140
+                        });
+                        recursiveShow(menuContainer.find('li').first());
+                    });
 
                     mainWrapper.animate({
                         'padding-left':180
@@ -45,7 +58,7 @@
                         left: -240
                     },menuAnimationTime,function () {
                         menuNav.animate({
-                            right: 30
+                            right: -210
                         }, menuAnimationTime);
                         mainWrapper.animate({
                             'padding-left': 0
@@ -56,13 +69,11 @@
                 menuContainer.toggleClass('hidden visible');
             });
 
-            $(document).on('mouseover', 'menu-wrapper li', function () {
+            $('.menu-wrapper li').hover(function(){
                 $(this).find('a').animate({
                     'padding-left': 15
                 }, hoverAnimationTime);
-            });
-
-            $(document).on('mouseleave', '.menu-wrapper li', function () {
+            },function(){
                 $(this).find('a').animate({
                     'padding-left': 0
                 }, hoverAnimationTime);
@@ -72,7 +83,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="menu">
+    <nav class="menu hidden" style="left: -240px">
         <div class="menu-nav">
             <div class="menu-icon">
                 <div class="line"></div>
@@ -81,8 +92,8 @@
             </div>
             <p class="menu-item">menu</p>
         </div>
-        <ul class="menu-wrapper hidden" style="left: -240px">
-            <li><a href="" class="home">Home</a></li>
+        <ul class="menu-wrapper">
+            <li><a href="" class="home active">Home</a></li>
             <li><a href="" class="work">Work</a></li>
             <li><a href="" class="about">About</a></li>
             <li><a href="" class="processes">Processes</a></li>
@@ -90,6 +101,24 @@
             <li><a href="" class="achievements">Achievements</a></li>
             <li><a href="" class="contacts">Contacts</a></li>
         </ul>
+        <div class="social">
+            <div class="icons">
+                <a href="" class="icon facebook"></a>
+                <a href="" class="icon twitter"></a>
+                <a href="" class="icon gplus"></a>
+                <a href="" class="icon mail"></a>
+            </div>
+            <div class="address">
+                <div class="row">
+                    <i class="icon-small place"></i>
+                    <div class="text caps">20 Трофимова</div>
+                </div>
+                <div class="row">
+                    <i class="icon-small phone"></i>
+                    <div class="text">416.531.5263</div>
+                </div>
+            </div>
+        </div>
     </nav>
     <div class="header"></div>
     <div class="wrapper">
@@ -141,83 +170,28 @@
         lectus. Nulla vitae dolor quis orci vehicula rutrum sed auctor sapien. Vestibulum bibendum lacus nec libero
         lobortis, sed tincidunt arcu blandit. Nulla vel elementum lacus.
 
-        <p>Duis vitae velit eget lorem dignissim consequat in sed ligula. Sed lobortis nisi eu quam malesuada, nec finibus
-        arcu consectetur. Vivamus accumsan enim eget interdum dignissim. Ut mollis mi sed orci viverra, id condimentum
-        massa porttitor. Suspendisse auctor nulla in metus aliquam accumsan. Pellentesque auctor urna non nunc viverra,
-        non malesuada est ultricies. Phasellus consequat condimentum tincidunt. Nulla lectus nibh, egestas nec nisi sit
-        amet, tincidunt mattis ligula. Vestibulum condimentum metus arcu, id vehicula orci rutrum vel. Nam a nulla ut
-        massa pulvinar tempus. Curabitur hendrerit auctor imperdiet. Integer quis blandit augue. Donec interdum tempus
-        justo in fermentum. Vestibulum porttitor leo ut lectus mollis vehicula. Etiam mauris nunc, scelerisque hendrerit
-        iaculis at, sollicitudin non ante.
+        <p>Ut at elit a turpis ornare dignissim in id ante. In faucibus scelerisque mi, eu porttitor lectus faucibus vitae.
+            Nulla luctus et massa a ultricies. In ac viverra neque. Morbi vitae elit scelerisque, fermentum mi vitae, mattis
+            nisl. Aliquam vulputate sem scelerisque vehicula consectetur. Sed id urna cursus, varius orci at, suscipit
+            lectus. Nulla vitae dolor quis orci vehicula rutrum sed auctor sapien. Vestibulum bibendum lacus nec libero
+            lobortis, sed tincidunt arcu blandit. Nulla vel elementum lacus.
 
-        <p>Integer porta quam ut dui maximus aliquet. Nullam mollis sollicitudin leo, vitae mollis lacus porttitor nec. In
-        nisi mi, imperdiet vitae placerat eget, semper et justo. Sed non enim a leo ultrices congue. Sed ornare mi sed
-        lobortis accumsan. Etiam erat nisi, tincidunt et arcu quis, porta rutrum sem. Praesent scelerisque, magna a
-        tristique venenatis, arcu arcu mattis ipsum, quis tincidunt dui nisi in odio. Ut blandit, augue eget dictum
-        luctus, tellus magna faucibus mauris, pulvinar accumsan lorem lacus ac enim. Nunc fringilla dapibus arcu, in
-        porta neque sagittis eget. In vitae orci felis.
+        <p>Nullam ut pulvinar ex. Nullam in scelerisque sapien. Nam efficitur odio tellus, ac dictum felis pretium ac. Sed
+            mattis auctor velit. Maecenas imperdiet accumsan tortor in condimentum. Vestibulum ut sagittis urna. Nam tempor
+            elit vel augue feugiat maximus. Donec congue at libero ac tincidunt.
 
-        <p>Donec vel dictum erat. Nulla ornare bibendum neque, nec fringilla nulla maximus nec. Nam euismod hendrerit ante
-        in auctor. Nulla dignissim risus vitae euismod iaculis. Cras auctor nibh in purus vestibulum elementum nec
-        convallis urna. Nullam quis erat porta, elementum lorem ut, imperdiet mi. Nullam sagittis urna at neque iaculis
-        pellentesque. Aliquam laoreet, tortor eget cursus rutrum, ligula lectus sodales nisi, sagittis egestas turpis
-        elit ac odio. Phasellus condimentum sem purus, id aliquam turpis dignissim quis.
+        <p>Ut at elit a turpis ornare dignissim in id ante. In faucibus scelerisque mi, eu porttitor lectus faucibus vitae.
+            Nulla luctus et massa a ultricies. In ac viverra neque. Morbi vitae elit scelerisque, fermentum mi vitae, mattis
+            nisl. Aliquam vulputate sem scelerisque vehicula consectetur. Sed id urna cursus, varius orci at, suscipit
+            lectus. Nulla vitae dolor quis orci vehicula rutrum sed auctor sapien. Vestibulum bibendum lacus nec libero
+            lobortis, sed tincidunt arcu blandit. Nulla vel elementum lacus.
 
-        <p>Vestibulum tincidunt felis quis erat facilisis, vel commodo lectus consequat. Duis molestie, diam malesuada
-        tempor mollis, mi lectus porta lorem, porta auctor diam elit vitae nisi. Donec malesuada dui sed fringilla
-        egestas. Pellentesque in ipsum eros. Praesent sit amet finibus justo. Nullam luctus rhoncus tellus, eu ultrices
-        leo. Vestibulum lobortis leo non libero dignissim, et imperdiet augue commodo. Proin et est eu odio vestibulum
-        facilisis in non tellus. Etiam quis pellentesque tellus. Vivamus bibendum ligula ut orci lobortis, in bibendum
-        mi efficitur. Ut eu dui ut lectus porta viverra et sed leo. Quisque arcu sapien, accumsan eget dui vel, pharetra
-        auctor turpis. Quisque ut mattis lacus.
-
-        <p>Praesent efficitur condimentum dignissim. Duis dictum sollicitudin ultricies. Nunc auctor finibus ex, sit amet
-        commodo dui. Donec dapibus interdum orci iaculis porttitor. Mauris non nisi fringilla, imperdiet urna quis,
-        pulvinar eros. In lectus orci, elementum id euismod sit amet, accumsan non sem. Cras malesuada, magna eget
-        molestie accumsan, arcu eros rutrum felis, sed vestibulum ipsum magna quis massa.
-
-        <p>Cras in justo id dui consectetur condimentum et id ipsum. Praesent mi velit, vestibulum nec ex ac, lobortis
-        convallis risus. Ut magna arcu, ornare vitae lorem non, fringilla iaculis turpis. Fusce placerat nisl efficitur
-        sem suscipit lobortis. Donec diam massa, condimentum sed rhoncus vitae, sodales eu lorem. Cras vel mattis nulla.
-        Vivamus faucibus ex justo, venenatis posuere mauris vulputate in.
-
-        <p>Nullam eleifend ex in tincidunt hendrerit. In hac habitasse platea dictumst. Maecenas convallis mattis felis,
-        dictum tincidunt justo fringilla a. Morbi efficitur ipsum at tortor sollicitudin, nec congue ante scelerisque.
-        Cras id suscipit lacus. Sed venenatis est id nulla venenatis, vel vulputate risus tincidunt. Quisque venenatis
-        mattis massa quis maximus. Proin sed luctus eros, ac porta quam. Aenean sollicitudin varius urna, eu dignissim
-        arcu fringilla at.
-
-        <p>Proin ac luctus mauris. Duis pharetra nunc sit amet nibh viverra, eu dignissim arcu interdum. Curabitur varius
-        elit non enim pulvinar, vitae interdum dolor commodo. Integer tempus augue nec porttitor placerat. Praesent
-        hendrerit pretium quam et commodo. Nam non volutpat purus. Sed feugiat odio et velit iaculis tincidunt.
-
-        <p>Vestibulum ac eleifend velit. Nullam condimentum lorem quis felis congue, ac tristique leo tempus. Sed venenatis
-        tortor a pharetra dapibus. Nam elementum eros vehicula, sagittis lectus maximus, tempus arcu. Curabitur egestas
-        scelerisque justo non varius. Etiam auctor pretium nisl, molestie lacinia dui euismod a. Morbi eleifend, neque
-        sit amet ullamcorper dapibus, nisl elit tempor sapien, nec pharetra nisl turpis non ante. Quisque et luctus
-        quam. Sed ornare ante quis rhoncus cursus. Fusce sit amet interdum lorem, ac tempor ligula. Aenean pretium
-        molestie nunc sed varius. Aliquam nec felis elementum mi tristique varius. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos.
-
-        <p>Vestibulum placerat egestas lectus, molestie faucibus augue tincidunt sit amet. Aenean vehicula suscipit tempus.
-        Nullam at sapien sed ligula aliquet egestas. Quisque aliquet tempor faucibus. Cras nec felis tellus. Sed ut
-        lectus at sem rutrum bibendum vel sit amet mi. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-        Nunc vitae fermentum mauris. Nulla facilisi. Pellentesque ut purus eget libero efficitur luctus at vel neque.
-
-        <p>Aenean id venenatis diam, eget scelerisque augue. Etiam eget massa nulla. Duis eget facilisis ante. Suspendisse
-        sagittis ligula quam, at suscipit ex molestie in. Integer fringilla, nisl at sagittis dapibus, lectus erat
-        imperdiet erat, at scelerisque sem nibh quis urna. Morbi ultricies porta scelerisque. Nunc aliquam vel eros ut
-        vehicula. Sed condimentum molestie varius. Nulla consectetur ante dolor, quis malesuada elit gravida pharetra.
-        Nunc facilisis lacus hendrerit orci sodales, non lacinia urna rhoncus. Morbi bibendum id ipsum ac semper. Nunc
-        tincidunt tincidunt egestas. In convallis accumsan erat, et porttitor velit bibendum eu. Mauris cursus interdum
-        metus tempor bibendum.
-
-        <p>Donec non est fringilla, imperdiet massa eget, condimentum nisl. Suspendisse a iaculis ipsum, vel interdum
-        sapien. Vivamus ultricies tincidunt eros, ac ornare ante lobortis et. Ut nisl turpis, tristique fringilla mauris
-        eget, consequat convallis elit. Curabitur et lacus sed metus lobortis mattis eu et metus. Morbi malesuada, nisl
-        eget cursus pharetra, eros arcu vulputate eros, sed consectetur magna odio vitae erat. Vivamus accumsan, ante
-        non bibendum vestibulum, metus lorem dictum nibh, ac finibus quam neque a odio. Vestibulum dictum nec mi vel
-        tincidunt.
+        <p>Integer vehicula scelerisque libero, sed tempus nunc. Cras faucibus id ipsum lacinia pellentesque. Cras aliquet
+            sodales dolor. Aliquam elementum lectus eget mauris fringilla dictum. Nam elementum a odio vel finibus. Integer
+            sit amet quam non libero porttitor vulputate sed non erat. Mauris feugiat, odio at tincidunt porttitor, neque
+            magna porta neque, at sodales sapien quam sit amet libero. Etiam at ligula elit. In a arcu at ipsum sodales
+            convallis. Nunc in enim vitae nibh pulvinar convallis in commodo tortor. Fusce ac ante laoreet, pellentesque
+            tellus a, sodales nibh. Praesent finibus est ante, at ultricies metus feugiat sed.
     </div>
 </div>
 </body>

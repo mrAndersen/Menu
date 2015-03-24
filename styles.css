@@ -77,6 +77,79 @@ html body .wrapper:before {
   top: 0;
   z-index: 4;
   height: 100%;
+  background: #fff;
+  min-height: 600px;
+}
+.menu .social {
+  position: absolute;
+  bottom: 0;
+  padding: 20px 0;
+  width: 240px;
+  left: 0px;
+}
+.menu .social .icons {
+  margin: 20px 40px;
+  border-bottom: solid 1px #eaeaea;
+  padding: 0 0 20px 0;
+  text-align: left;
+}
+.menu .social .address .row {
+  float: left;
+  margin: 3px 40px;
+}
+.menu .social .address .row .text {
+  float: left;
+  font-size: 10px;
+  color: #a4a4a4;
+  font-family: Verdana;
+}
+.menu .social .address .row .icon-small {
+  display: inline-block;
+  width: 16px;
+  height: 10px;
+  font-family: icons;
+  font-size: 30px;
+  float: left;
+  margin: 0 15px 0 0px;
+  top: -9px;
+  position: relative;
+}
+.menu .social .address .row .icon-small.place:before {
+  content: "\e60d";
+}
+.menu .social .address .row .icon-small.phone:before {
+  content: "\e628";
+}
+.menu .social .icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-family: icons;
+  background: #000;
+  border-radius: 3px;
+}
+.menu .social .icon:hover {
+  text-decoration: none;
+}
+.menu .social .icon:before {
+  font-size: 30px;
+  text-align: center;
+  position: relative;
+  left: -1px;
+}
+.menu .social .icon.facebook:before {
+  content: "\e61d";
+}
+.menu .social .icon.twitter:before {
+  content: "\e61f";
+}
+.menu .social .icon.gplus:before {
+  content: "\e632";
+}
+.menu .social .icon.mail:before {
+  content: "\e630";
 }
 .menu .menu-wrapper {
   border: none;
@@ -84,10 +157,8 @@ html body .wrapper:before {
   text-align: left;
   padding: 90px 40px 0 40px;
   width: 240px;
-  background: #fff;
   margin: 0;
   position: relative;
-  height: 100%;
 }
 .menu .menu-wrapper.visible {
   left: 0;
@@ -107,12 +178,15 @@ html body .wrapper:before {
 }
 .menu .menu-wrapper li a {
   display: inline-block;
-  padding: 16px 0;
+  padding: 14px 0;
   color: grey;
   text-decoration: none;
-  border-bottom: solid 1px #cfcfcf;
+  border-bottom: solid 1px #eaeaea;
   font-size: 14px;
   width: 100%;
+}
+.menu .menu-wrapper li a.active {
+  color: #000;
 }
 .menu .menu-wrapper li a:hover {
   text-decoration: none;
@@ -123,7 +197,7 @@ html body .wrapper:before {
 .menu .menu-wrapper li a:before {
   font-family: "icons";
   padding: 0 10px 0 0;
-  font-size: 18px;
+  font-size: 20px;
   position: relative;
   top: 3px;
 }
@@ -152,8 +226,9 @@ html body .wrapper:before {
   cursor: pointer;
   text-align: right;
   position: absolute;
-  right: 30px;
+  right: -210px;
   top: 50px;
+  z-index: 2;
 }
 .menu .menu-nav.active {
   color: grey;

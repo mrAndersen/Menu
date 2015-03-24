@@ -26,6 +26,54 @@ html{
     margin: 0;
     padding: 0;
     border: none;
+    font-family: Verdana;
+    .header{
+      height: 100px;
+      top: 0;
+      position: fixed;
+      width: 100%;
+      z-index: 3;
+      background: #fff;
+      border-bottom: solid 1px #cfcfcf;
+    }
+
+    .wrapper{
+      position: relative;
+      margin: 100px 100px 0 100px;
+      padding: 20px 0 0 0;
+      z-index: 2;
+      &:before{
+        content: '';
+        background: #fff;
+        position: relative;
+      }
+    }
+
+    @media (max-width: 992px){
+      .header{
+        height: 50px;
+      }
+      .wrapper{
+        margin-top: 50px;
+      }
+      .menu{
+        .menu-nav{
+          .menu-item{
+            display: none;
+          }
+          .menu-icon{
+            top: -30px;
+            left: -80px;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 992px){
+      .header{
+        height: 100px;
+      }
+    }
   }
 }
 
@@ -37,7 +85,10 @@ html{
   text-align: center;
   font-weight: normal;
   float: left;
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  height: 100%;
   .menu-wrapper{
     border: none;
     list-style: none;
@@ -47,6 +98,7 @@ html{
     background: #fff;
     margin: 0;
     position: relative;
+    height: 100%;
     &.visible{
       left: 0;
     }
@@ -130,8 +182,8 @@ html{
     cursor: pointer;
     text-align: right;
     position: absolute;
-    right: -130px;
-    top: 60px;
+    right: 30px;
+    top: 50px;
     &.active{
       color: grey;
       .line{

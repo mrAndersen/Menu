@@ -23,6 +23,47 @@ html body {
   margin: 0;
   padding: 0;
   border: none;
+  font-family: Verdana;
+}
+html body .header {
+  height: 100px;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  background: #fff;
+  border-bottom: solid 1px #cfcfcf;
+}
+html body .wrapper {
+  position: relative;
+  margin: 100px 100px 0 100px;
+  padding: 20px 0 0 0;
+  z-index: 2;
+}
+html body .wrapper:before {
+  content: '';
+  background: #fff;
+  position: relative;
+}
+@media (max-width: 992px) {
+  html body .header {
+    height: 50px;
+  }
+  html body .wrapper {
+    margin-top: 50px;
+  }
+  html body .menu .menu-nav .menu-item {
+    display: none;
+  }
+  html body .menu .menu-nav .menu-icon {
+    top: -30px;
+    left: -80px;
+  }
+}
+@media (min-width: 992px) {
+  html body .header {
+    height: 100px;
+  }
 }
 .menu {
   color: #252425;
@@ -32,7 +73,10 @@ html body {
   text-align: center;
   font-weight: normal;
   float: left;
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  height: 100%;
 }
 .menu .menu-wrapper {
   border: none;
@@ -43,6 +87,7 @@ html body {
   background: #fff;
   margin: 0;
   position: relative;
+  height: 100%;
 }
 .menu .menu-wrapper.visible {
   left: 0;
@@ -107,8 +152,8 @@ html body {
   cursor: pointer;
   text-align: right;
   position: absolute;
-  right: -130px;
-  top: 60px;
+  right: 30px;
+  top: 50px;
 }
 .menu .menu-nav.active {
   color: grey;

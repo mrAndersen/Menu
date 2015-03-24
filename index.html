@@ -20,7 +20,7 @@
             var recursiveShow = function(element){
                 if(element.index() != -1){
                     var next = element.next();
-                    element.slideDown(85,function(){
+                    element.fadeIn(30,function(){
                         recursiveShow(next);
                     });
                 }

@@ -18,6 +18,8 @@ html {
   padding: 0;
   border: none;
   background: #E1E8EC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 html body {
   margin: 0;
@@ -184,6 +186,8 @@ html body .wrapper:before {
   border-bottom: solid 1px #eaeaea;
   font-size: 14px;
   width: 100%;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 .menu .menu-wrapper li a.active {
   color: #000;
@@ -200,6 +204,7 @@ html body .wrapper:before {
   font-size: 20px;
   position: relative;
   top: 3px;
+  font-weight: normal;
 }
 .menu .menu-wrapper li a.home:before {
   content: "\e625";

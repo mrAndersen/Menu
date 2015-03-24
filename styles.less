@@ -22,6 +22,8 @@ html{
   padding: 0;
   border: none;
   background: #E1E8EC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   body{
     margin: 0;
     padding: 0;
@@ -199,6 +201,8 @@ html{
         border-bottom: solid 1px #eaeaea;
         font-size: 14px;
         width: 100%;
+        font-weight: bold;
+        letter-spacing: 1px;
         &.active{
           color: #000;
         }
@@ -214,6 +218,7 @@ html{
           font-size: 20px;
           position: relative;
           top: 3px;
+          font-weight: normal;
         }
         &.home{
           &:before{

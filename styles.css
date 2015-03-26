@@ -54,6 +54,16 @@ html body .wrapper:before {
   html body .wrapper {
     margin-top: 50px;
   }
+  html body .menu {
+    background: #f7f7f7;
+    border-right: solid 1px #cfcfcf;
+  }
+  html body .menu .menu-wrapper {
+    padding: 0 20px;
+  }
+  html body .menu .menu-wrapper li a {
+    padding: 11px 0px;
+  }
   html body .menu .menu-nav .menu-item {
     display: none;
   }
@@ -81,17 +91,6 @@ html body .wrapper:before {
   height: 100%;
   background: #fff;
   min-height: 600px;
-}
-.menu.opened {
-  -webkit-transform: translate3d(240px, 0, 0);
-  -moz-transform: translate3d(240px, 0, 0);
-  -ms-transform: translate3d(240px, 0, 0);
-  -o-transform: translate3d(240px, 0, 0);
-  transform: translate3d(240px, 0, 0);
-  -webkit-transition: -webkit-transform 0.3s linear;
-  -moz-transition: -moz-transform 0.3s linear;
-  -o-transition: -o-transform 0.3s linear;
-  transition: transform .3s linear;
 }
 .menu .social {
   position: absolute;
@@ -269,7 +268,7 @@ html body .wrapper:before {
   margin: 0;
   vertical-align: top;
   text-transform: uppercase;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   width: 82px;
   letter-spacing: 1px;
 }

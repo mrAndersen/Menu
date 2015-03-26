@@ -82,6 +82,17 @@ html body .wrapper:before {
   background: #fff;
   min-height: 600px;
 }
+.menu.opened {
+  -webkit-transform: translate3d(240px, 0, 0);
+  -moz-transform: translate3d(240px, 0, 0);
+  -ms-transform: translate3d(240px, 0, 0);
+  -o-transform: translate3d(240px, 0, 0);
+  transform: translate3d(240px, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  -moz-transition: -moz-transform 0.3s linear;
+  -o-transition: -o-transform 0.3s linear;
+  transition: transform .3s linear;
+}
 .menu .social {
   position: absolute;
   bottom: 0;
@@ -260,6 +271,7 @@ html body .wrapper:before {
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
   width: 82px;
+  letter-spacing: 1px;
 }
 .menu .menu-nav .menu-item:before {
   content: "|";

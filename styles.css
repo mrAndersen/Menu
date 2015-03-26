@@ -36,6 +36,16 @@ html body .header {
   background: #fff;
   border-bottom: solid 1px #cfcfcf;
 }
+html body .wrapper-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0 0 0 260px;
+  z-index: 10;
+  display: none;
+}
 html body .wrapper {
   position: relative;
   margin: 100px 100px 0 100px;

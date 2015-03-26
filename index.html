@@ -16,6 +16,7 @@
             var menuSwitcher = $(".menu-item");
             var menuNav = $('.menu-nav');
             var mainWrapper = $('.wrapper');
+            var mainWrapperOverlay = $('.wrapper-overlay');
 
             var recursiveShow = function (element) {
                 if (element.index() != -1) {
@@ -28,6 +29,7 @@
 
             var hideMenu = function () {
                 menuSwitcher.text("menu");
+                mainWrapperOverlay.show();
 
                 menuContainer.delay(delayAnimationTime).animate({
                     left: -240
@@ -42,14 +44,14 @@
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
                     menuNav.toggleClass("active");
                     menuContainer.toggleClass('hidden visible');
+                    mainWrapperOverlay.hide();
                 }});
-
-
             };
 
             var showMenu = function () {
                 menuSwitcher.text("close");
                 menuContainer.find('li').hide();
+                mainWrapperOverlay.show();
 
                 menuNav.animate({
                     'right': -140
@@ -62,11 +64,13 @@
                 menuContainer.delay(delayAnimationTime).animate({
                     left: 0
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
-                            menuNav.toggleClass("active");
-                            menuContainer.toggleClass('hidden visible');
+                    menuNav.toggleClass("active");
+                    menuContainer.toggleClass('hidden visible');
+                    mainWrapperOverlay.hide();
 
-                            recursiveShow(menuContainer.find('li').first());
-                        }});
+                    recursiveShow(menuContainer.find('li').first());
+                }});
+
             };
 
             $(document).on('mousewheel','html',function(){
@@ -129,7 +133,6 @@
             <div class="address">
                 <div class="row">
                     <i class="icon-small place"></i>
-
                     <div class="text caps">20 Трофимова</div>
                 </div>
                 <div class="row">
@@ -141,6 +144,7 @@
         </div>
     </nav>
     <div class="header"></div>
+    <div class="wrapper-overlay"></div>
     <div class="wrapper">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat accumsan dictum. Aenean varius vel purus at
         faucibus. Duis sit amet eros ac massa mattis semper quis vitae metus. Etiam dolor felis, volutpat sit amet nulla

@@ -29,7 +29,7 @@
 
             var hideMenu = function () {
                 menuSwitcher.text("menu");
-                mainWrapperOverlay.show();
+                mainWrapperOverlay.hide();
 
                 menuContainer.delay(delayAnimationTime).animate({
                     left: -240
@@ -44,7 +44,7 @@
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
                     menuNav.toggleClass("active");
                     menuContainer.toggleClass('hidden visible');
-                    mainWrapperOverlay.hide();
+
                 }});
             };
 
@@ -66,7 +66,6 @@
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
                     menuNav.toggleClass("active");
                     menuContainer.toggleClass('hidden visible');
-                    mainWrapperOverlay.hide();
 
                     recursiveShow(menuContainer.find('li').first());
                 }});
@@ -77,6 +76,10 @@
                 if(menuNav.hasClass('active')){
                     hideMenu();
                 }
+            });
+
+            $(document).on('click','.wrapper-overlay',function(){
+                hideMenu();
             });
 
             $(document).on('click tap', '.menu-nav', function () {

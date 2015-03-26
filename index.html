@@ -22,11 +22,14 @@
             var recursiveShow = function (element) {
                 if (element.index() != -1) {
                     var next = element.next();
+                    element.css("margin-left", "0px");
                     element.fadeIn(30, function () {
                         recursiveShow(next);
-                    });
+                    }).animate({'margin-left':'10px'},50);
                 }
             };
+
+
 
             var hideMenu = function () {
                 menuSwitcher.text("menu");
@@ -111,10 +114,12 @@
 <div class="container">
     <nav class="menu hidden" style="left: -240px">
         <div class="menu-nav">
-            <div class="menu-icon">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <div class="nav-button">
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
             </div>
             <p class="menu-item">menu</p>
         </div>

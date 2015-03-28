@@ -81,6 +81,20 @@ html{
           }
         }
         .menu-nav{
+          top: 0px;
+          right: -140px;
+          &.active{
+            -webkit-transform: matrix(1, 0, 0, 1, -60, 0);
+            -moz-transform: matrix(1, 0, 0, 1, -60, 0);
+            -ms-transform: matrix(1, 0, 0, 1, -60, 0);
+            -o-transform: matrix(1, 0, 0, 1, -60, 0);
+            transform: matrix(1, 0, 0, 1, -60, 0);
+
+            -webkit-transition: -webkit-transform .3s linear;
+            -moz-transition: -moz-transform .3s linear;
+            -o-transition: -o-transform .3s linear;
+            transition: transform .3s linear;
+          }
           .menu-item{
             display: none;
           }
@@ -164,25 +178,46 @@ html{
       font-family: icons;
       background: #000;
       border-radius: 3px;
+      position: relative;
       &:hover{
         text-decoration: none;
+        &:before{
+          width: 30px;
+          left: 0;
+          right: auto;
+        }
       }
       &:before{
+        border-radius: 2px;
+        content: '';
+        background-color: #808080;
+        position: absolute;
+        right: 0;
+        left: auto;
+        top: 0;
+        height: 30px;
+        width: 0px;
+        -webkit-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+        -moz-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+        -o-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+        transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+      }
+      &:after{
         font-size: 30px;
         text-align: center;
         position: relative;
         left: -1px;
       }
-      &.facebook:before{
+      &.facebook:after{
           content: "\e61d";
       }
-      &.twitter:before{
+      &.twitter:after{
           content: "\e61f";
       }
-      &.gplus:before{
+      &.gplus:after{
           content: "\e632";
       }
-      &.mail:before{
+      &.mail:after{
           content: "\e630";
       }
     }
@@ -463,8 +498,22 @@ html{
         }
       }
     }
+    -webkit-transition: -webkit-transform .3s linear;
+    -moz-transition: -moz-transform .3s linear;
+    -o-transition: -o-transform .3s linear;
+    transition: transform .3s linear;
     &.active{
       color: grey;
+      -webkit-transform: matrix(1, 0, 0, 1, -60, 0);
+      -moz-transform: matrix(1, 0, 0, 1, -60, 0);
+      -ms-transform: matrix(1, 0, 0, 1, -60, 0);
+      -o-transform: matrix(1, 0, 0, 1, -60, 0);
+      transform: matrix(1, 0, 0, 1, -60, 0);
+
+      -webkit-transition: -webkit-transform .3s linear;
+      -moz-transition: -moz-transform .3s linear;
+      -o-transition: -o-transform .3s linear;
+      transition: transform .3s linear;
       .nav-button {
         div.hamburger {
           .line:nth-child(1) {

@@ -74,6 +74,21 @@ html body .wrapper:before {
   html body .menu .menu-wrapper li a {
     padding: 11px 0px;
   }
+  html body .menu .menu-nav {
+    top: 0px;
+    right: -140px;
+  }
+  html body .menu .menu-nav.active {
+    -webkit-transform: matrix(1, 0, 0, 1, -60, 0);
+    -moz-transform: matrix(1, 0, 0, 1, -60, 0);
+    -ms-transform: matrix(1, 0, 0, 1, -60, 0);
+    -o-transform: matrix(1, 0, 0, 1, -60, 0);
+    transform: matrix(1, 0, 0, 1, -60, 0);
+    -webkit-transition: -webkit-transform 0.3s linear;
+    -moz-transition: -moz-transform 0.3s linear;
+    -o-transition: -o-transform 0.3s linear;
+    transition: transform .3s linear;
+  }
   html body .menu .menu-nav .menu-item {
     display: none;
   }
@@ -151,26 +166,47 @@ html body .wrapper:before {
   font-family: icons;
   background: #000;
   border-radius: 3px;
+  position: relative;
 }
 .menu .social .icon:hover {
   text-decoration: none;
 }
+.menu .social .icon:hover:before {
+  width: 30px;
+  left: 0;
+  right: auto;
+}
 .menu .social .icon:before {
+  border-radius: 2px;
+  content: '';
+  background-color: #808080;
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: 0;
+  height: 30px;
+  width: 0px;
+  -webkit-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+  -moz-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+  -o-transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+  transition: width 0.3s cubic-bezier(1, 0, 0, 1);
+}
+.menu .social .icon:after {
   font-size: 30px;
   text-align: center;
   position: relative;
   left: -1px;
 }
-.menu .social .icon.facebook:before {
+.menu .social .icon.facebook:after {
   content: "\e61d";
 }
-.menu .social .icon.twitter:before {
+.menu .social .icon.twitter:after {
   content: "\e61f";
 }
-.menu .social .icon.gplus:before {
+.menu .social .icon.gplus:after {
   content: "\e632";
 }
-.menu .social .icon.mail:before {
+.menu .social .icon.mail:after {
   content: "\e630";
 }
 .menu .menu-wrapper {
@@ -254,6 +290,10 @@ html body .wrapper:before {
   right: -210px;
   top: 50px;
   z-index: 2;
+  -webkit-transition: -webkit-transform 0.3s linear;
+  -moz-transition: -moz-transform 0.3s linear;
+  -o-transition: -o-transform 0.3s linear;
+  transition: transform .3s linear;
 }
 .menu .menu-nav .nav-button {
   width: 20px;
@@ -431,6 +471,15 @@ html body .wrapper:before {
 }
 .menu .menu-nav.active {
   color: grey;
+  -webkit-transform: matrix(1, 0, 0, 1, -60, 0);
+  -moz-transform: matrix(1, 0, 0, 1, -60, 0);
+  -ms-transform: matrix(1, 0, 0, 1, -60, 0);
+  -o-transform: matrix(1, 0, 0, 1, -60, 0);
+  transform: matrix(1, 0, 0, 1, -60, 0);
+  -webkit-transition: -webkit-transform 0.3s linear;
+  -moz-transition: -moz-transform 0.3s linear;
+  -o-transition: -o-transform 0.3s linear;
+  transition: transform .3s linear;
 }
 .menu .menu-nav.active .nav-button div.hamburger .line:nth-child(1) {
   -webkit-transform: translateY(-2px) rotate(45deg);

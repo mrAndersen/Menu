@@ -33,20 +33,17 @@
 
             var hideMenu = function () {
                 menuSwitcher.text("menu");
+                menuNav.toggleClass("active");
                 mainWrapperOverlay.hide();
 
                 menuContainer.delay(delayAnimationTime).animate({
                     left: -240
                 }, {duration: menuAnimationTime, queue: false});
 
-                menuNav.animate({
-                    right: -210
-                }, {duration: menuAnimationTime, queue: false});
-
                 mainWrapper.animate({
                     'left': 0
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
-                    menuNav.toggleClass("active");
+
                     menuContainer.toggleClass('hidden visible');
 
                 }});
@@ -56,10 +53,7 @@
                 menuSwitcher.text("close");
                 menuContainer.find('li').hide();
                 mainWrapperOverlay.show();
-
-                menuNav.animate({
-                    'right': -140
-                },{duration: menuAnimationTime, queue: false});
+                menuNav.toggleClass("active");
 
                 mainWrapper.animate({
                     'left': 180
@@ -68,7 +62,7 @@
                 menuContainer.delay(delayAnimationTime).animate({
                     left: 0
                 }, {duration: menuAnimationTime, queue: false, complete:function(){
-                    menuNav.toggleClass("active");
+
                     menuContainer.toggleClass('hidden visible');
 
                     recursiveShow(menuContainer.find('li').first());

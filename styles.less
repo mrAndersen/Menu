@@ -36,9 +36,7 @@ html{
       width: 100%;
       z-index: 3;
       background: #fff;
-      border-bottom: solid 1px #cfcfcf;
     }
-
     .wrapper-overlay{
       position: fixed;
       width: 100%;
@@ -49,7 +47,6 @@ html{
       z-index: 10;
       display: none;
     }
-
     .wrapper{
       position: relative;
       margin: 100px 100px 0 100px;
@@ -72,6 +69,26 @@ html{
       .menu{
         background: #f7f7f7;
         border-right: solid 1px #cfcfcf;
+        .social{
+          .icons{
+            margin: 20px 30px;
+          }
+          .icon{
+            width: 40px;
+            height: 40px;
+            &:after{
+              font-size: 38px;
+            }
+            &:hover{
+              &:before{
+                width: 40px;
+              }
+            }
+            &:before{
+              height: 40px;
+            }
+          }
+        }
         .menu-wrapper{
           padding: 0 20px;
           li{
@@ -160,6 +177,7 @@ html{
           margin: 0 15px 0 0px;
           top: -9px;
           position: relative;
+          font-style: normal;
           &.place:before{
             content: "\e60d";
           }
@@ -177,7 +195,7 @@ html{
       text-decoration: none;
       font-family: icons;
       background: #000;
-      border-radius: 3px;
+      border-radius: 2px;
       position: relative;
       &:hover{
         text-decoration: none;
@@ -226,7 +244,7 @@ html{
     border: none;
     list-style: none;
     text-align: left;
-    padding: 90px 40px 0 40px;
+    padding: 90px 50px 0 30px;
     width: 240px;
     margin: 0;
     position: relative;
@@ -250,13 +268,12 @@ html{
         }
       }
       a{
-        display: inline-block;
+        display: block;
         padding: 14px 0;
-        color: grey;
+        color: #a4a4a4;
         text-decoration: none;
         border-bottom: solid 1px #eaeaea;
         font-size: 14px;
-        width: 100%;
         font-weight: bold;
         letter-spacing: 1px;
         &.active{
@@ -264,6 +281,7 @@ html{
         }
         &:hover{
           text-decoration: none;
+          color: #252425;
         }
         &.active{
           color: #000;
@@ -320,7 +338,7 @@ html{
     text-align: right;
     position: absolute;
     right: -210px;
-    top: 50px;
+    top: 40px;
     z-index: 2;
     .nav-button {
       width: 20px;
@@ -549,9 +567,13 @@ html{
       transition: all 0.2s ease-in-out;
       width: 82px;
       letter-spacing: 1px;
+      color: #c0bdbf;
+      &:hover{
+        color: #252425;
+      }
       &:before{
         content: "|";
-        margin: 0px 17px;
+        margin: 0px 10px 0px 10px;
       }
     }
   }

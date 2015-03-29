@@ -574,17 +574,16 @@ html{
       letter-spacing: 1px;
       color: #c0bdbf;
       cursor: pointer;
-      span{
-        display: inline-block;
-        margin: 0px 15px 0px 14px;
-        float: left;
-        color: #c0bdbf;
-      }
       &:hover{
         color: #252425;
-        span{
+        &:before{
           color: #c0bdbf;
         }
+      }
+      &:before{
+        color: #c0bdbf;
+        content: "|";
+        margin: 0px 15px 0px 10px;
       }
     }
   }

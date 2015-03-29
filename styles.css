@@ -536,15 +536,14 @@ html body .wrapper:before {
   color: #c0bdbf;
   cursor: pointer;
 }
-.menu .menu-nav .menu-item span {
-  display: inline-block;
-  margin: 0px 15px 0px 14px;
-  float: left;
-  color: #c0bdbf;
-}
 .menu .menu-nav .menu-item:hover {
   color: #252425;
 }
-.menu .menu-nav .menu-item:hover span {
+.menu .menu-nav .menu-item:hover:before {
   color: #c0bdbf;
+}
+.menu .menu-nav .menu-item:before {
+  color: #c0bdbf;
+  content: "|";
+  margin: 0px 15px 0px 10px;
 }

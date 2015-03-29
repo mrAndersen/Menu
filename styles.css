@@ -67,6 +67,9 @@ html body .wrapper:before {
     background: #f7f7f7;
     border-right: solid 1px #cfcfcf;
   }
+  html body .menu .social {
+    bottom: 40px;
+  }
   html body .menu .social .icons {
     margin: 20px 30px;
   }

@@ -35,6 +35,7 @@
                 menuSwitcher.text("menu");
                 menuNav.toggleClass("active");
                 mainWrapperOverlay.hide();
+                mainWrapper.toggleClass("active");
 
                 menuContainer.delay(delayAnimationTime).animate({
                     left: -240
@@ -54,6 +55,7 @@
                 menuContainer.find('li').hide();
                 mainWrapperOverlay.show();
                 menuNav.toggleClass("active");
+                mainWrapper.toggleClass("active");
 
                 mainWrapper.animate({
                     'left': 180

@@ -63,6 +63,9 @@ html body .wrapper:before {
   html body .wrapper {
     margin: 50px 20px 0 20px;
   }
+  html body .wrapper.active {
+    margin: 50px 20px 0 80px;
+  }
   html body .menu {
     background: #f7f7f7;
     border-right: solid 1px #cfcfcf;

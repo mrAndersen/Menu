@@ -64,7 +64,7 @@ html{
         height: 50px;
       }
       .wrapper{
-        margin-top: 50px;
+        margin: 50px 20px 0 20px;
       }
       .menu{
         background: #f7f7f7;
@@ -99,7 +99,7 @@ html{
         }
         .menu-nav{
           top: 0px;
-          right: -140px;
+          right: -70px;
           &.active{
             -webkit-transform: matrix(1, 0, 0, 1, -60, 0);
             -moz-transform: matrix(1, 0, 0, 1, -60, 0);
@@ -111,6 +111,8 @@ html{
             -moz-transition: -moz-transform .3s linear;
             -o-transition: -o-transform .3s linear;
             transition: transform .3s linear;
+
+            right: -120px;
           }
           .menu-item{
             display: none;
@@ -197,6 +199,7 @@ html{
       background: #000;
       border-radius: 2px;
       position: relative;
+      margin: 0 1px 0 0;
       &:hover{
         text-decoration: none;
         &:before{
@@ -347,7 +350,7 @@ html{
       cursor: pointer;
       position: relative;
       top: 17px;
-      left: -20px;
+      left: -30px;
       div.hamburger {
         width: 20px;
         height: 13px;
@@ -573,7 +576,7 @@ html{
       }
       &:before{
         content: "|";
-        margin: 0px 10px 0px 10px;
+        margin: 0px 15px 0px 10px;
       }
     }
   }
